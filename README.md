@@ -1,4 +1,3 @@
-
 # So_long
 
 A minigame done with the minilibx. The goal is to get every collectible on the map and then quit the map by going on the exit door.
@@ -17,6 +16,9 @@ Clone the repository and go to it's root folder, you will need any mlx required 
 Playable maps and their names are located into /maps folder.    
 
  You can change the size of the maps and add different elements such as more collectibles or more walls, as long as it fits the conditions of the map playability.  
+
+## Movements
+Use W (up) - A (left) - S (down) - D (right) keys to move your character , You can quit the game by pressing the ESC key
 
 ## Documentation 
 by Harm Smits
