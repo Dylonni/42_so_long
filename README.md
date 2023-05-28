@@ -1,6 +1,24 @@
-# 42_so_long
-So_long , minigame with minilibx
 
-1.Clone this repository , run 'make' command
-2.Run ./so_long "name of the map you want to play" , you can see the map names under the '/maps' folder.
-3.You can modify the map itself by changing it's content with a text editor if you like.
+# So_long
+
+A minigame done with the minilibx. The goal is to get every collectible on the map and then quit the map by going on the exit door.
+
+
+## How to get it work
+
+Clone the repository and go to it's root folder, you will need any mlx required depedencies to make the game run
+
+```bash
+  make
+```
+```bash
+  ./so_long <name_of_map>
+```
+Playable maps and their names are located into /maps folder.    
+
+ You can change the size of the maps and add different elements such as more collectibles or more walls, as long as it fits the conditions of the map playability.  
+
+## Documentation 
+by Harm Smits
+
+[MinilibX](https://harm-smits.github.io/42docs/libs/minilibx)
