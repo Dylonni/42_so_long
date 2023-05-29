@@ -20,8 +20,10 @@ Playable maps and their names are located into /maps folder.
 ## Movements
 Keys to move your character
 
-   [W] (up)  
-[A] (left)  [S] (down)  [D] (right)  
+[W] (up)  
+[A] (left)  
+[S] (down)  
+[D] (right)  
 
 You can quit the game by pressing the [ESC] key
 
