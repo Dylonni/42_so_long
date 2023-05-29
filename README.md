@@ -18,7 +18,12 @@ Playable maps and their names are located into /maps folder.
  You can change the size of the maps and add different elements such as more collectibles or more walls, as long as it fits the conditions of the map playability.  
 
 ## Movements
-Use W (up) - A (left) - S (down) - D (right) keys to move your character , You can quit the game by pressing the ESC key
+Keys to move your character
+
+           [W](up)  
+[A] (left)  [S] (down)  [D] (right)  
+
+You can quit the game by pressing the [ESC] key
 
 ## Documentation 
 by Harm Smits
