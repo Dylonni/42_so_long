@@ -8,7 +8,7 @@ A minigame done with the minilibx. The goal is to get every collectible on the m
 Clone the repository and go to it's root folder, you will need any mlx required depedencies to make the game run
 
 ```bash
-  make
+  $ make
 ```
 ```bash
   ./so_long <name_of_map>
