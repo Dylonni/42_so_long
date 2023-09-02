@@ -5,8 +5,17 @@ A minigame done with the minilibx. The goal is to get every collectible on the m
 
 ## How to get it work
 
-Clone the repository and go to it's root folder, you will need any mlx required depedencies to make the game run
+Clone the repository and go to it's root folder, you will need any mlx required depedencies to make the game run such as X11
 
+```bash
+  $ cd mlx_linux
+```
+```bash
+  $ chmod 777 ./configure
+```
+```bash
+  $ cd ..
+```
 ```bash
   $ make
 ```
