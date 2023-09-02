@@ -43,8 +43,9 @@ by Harm Smits
 
 ## Troubleshoot
 Making it run on WSL (Windows Subsystem for Linux)
-  As you need X11 to make the game run, you'll need to install these packages.
-  first
+
+As you need X11 to make the game run, you'll need to install these packages.
+first
 ```bash
   $ sudo apt update
   $ sudo apt upgrade
