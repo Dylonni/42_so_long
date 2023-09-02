@@ -41,10 +41,10 @@ by Harm Smits
 
 [MinilibX](https://harm-smits.github.io/42docs/libs/minilibx)
 
-## Troubleshoot
-Making it run on WSL (Windows Subsystem for Linux)
+## Making it run on WSL (Windows Subsystem for Linux)
 
-As you need X11 to make the game run, you'll need to install these packages.
+As you need X11 to make the game run, you'll need some packages to install.
+
 first
 ```bash
   $ sudo apt update
