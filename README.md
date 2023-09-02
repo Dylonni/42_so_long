@@ -40,3 +40,17 @@ You can quit the game by pressing the [ESC] key
 by Harm Smits
 
 [MinilibX](https://harm-smits.github.io/42docs/libs/minilibx)
+
+## Troubleshoot
+Making it run on WSL (Windows Subsystem for Linux)
+  As you need X11 to make the game run, you'll need to install these packages.
+  first
+```bash
+  $ sudo apt update
+  $ sudo apt upgrade
+```
+Then
+```bash
+  $ sudo apt install libxext-dev
+  $ sudo apt install libbsd-dev
+```
