@@ -32,21 +32,23 @@ CFLAGS			= -Wall -Wextra -Werror
 
 NAME			= so_long
 
-all: $(OBJ_DIR)	$(NAME)
+all: $(OBJ_DIR) $(OBJS) $(NAME)
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
-$(OBJ_DIR)/%.o: src/%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: src/%.c | $(OBJ_DIR)
+	@mkdir -p $(@D)
+	@printf "⌛ [\e[1;96mCompiling\033[0m]\033[35m $<\033[0m \n"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@echo "\033[1;35m\n                              ⌛️Compiling files...\033[0m"
 	@make -s -C ${LIBFT_DIR}
 	@make -s -C ${MLX_DIR}
-	$(CC) $(OBJS) $(CFLAGS) Libft/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
-	@echo "\033[32;1m\n                     Project has compiled successfully! ✅ \033[0m"
-	@echo "\033[32;1m\n 💾 Executable './$(NAME)' has been created in: \n    └─ 📂 \033[4;36m ~ $(PWD)\033[0m"
+	@$(CC) $(OBJS) $(CFLAGS) Libft/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	@printf "\033[32;1m\n                   ✅ Project has compiled successfully!          \033[0m"
+	@printf "\n\n    [🏳️ FLAGS: \033[0;35m$(CFLAGS)\033[0m]"
+	@echo "\033[32;1m\n 💾 Executable \e[7m./$(NAME)\e[27m has been created in: \n    └─ 📂 \033[4;36m ~ $(PWD)\033[0m"
 
 %.o: %.c
 	$(CC) -Wall -Wextra -I/usr/include -Imlx_linux -O3 -c $< -o $@
@@ -54,15 +56,14 @@ $(NAME): $(OBJS)
 clean:
 	$(RM) -r $(OBJ_DIR)
 
-fclean:		
-	@echo "\033[1;33m\n                        [Cleaning directories with \033[0;36mfclean\033[1;33m]\n\033[0m"
+fclean:
+	@echo "\033[1;93m\n                        [Cleaning directories with \033[0;96mfclean\033[1;93m]\n\033[0m"
 	@make clean
-	@make -C ${LIBFT_DIR} fclean
 	$(RM) $(NAME)
 
-re:	
+re:
 	@make fclean
-	@echo "\033[1;33m\n                            [Calling \033[0;36mmake all\033[1;33m rule]\n\033[0m"
-	@make all
+	@echo "\033[1;93m\n                             [Calling \033[0;96mmake all\033[1;93m rule]\n\033[0m"
+	@make -s all
 
-.PHONY:	all clean fclean re
+.PHONY: all clean fclean re
