@@ -20,11 +20,11 @@ SRC_MAIN		= src/main.c \
 				  src/free.c
 
 SRCS			= ${SRC_MAIN}
+OBJ_DIR			= objs
+OBJS 			= $(patsubst src/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 LIBFT_DIR 		= Libft/
 MLX_DIR			= mlx_linux/
-
-OBJ			= $(SRCS:.c=.o)
 
 CC			= cc
 RM			= rm -f
@@ -32,13 +32,19 @@ CFLAGS			= -Wall -Wextra -Werror
 
 NAME			= so_long
 
-all:			$(NAME)
+all: $(OBJ_DIR)	$(NAME)
 
-$(NAME): $(OBJ)
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME): $(OBJS)
 	@echo "\033[1;35m\n                              ⌛️Compiling files...\033[0m"
 	@make -s -C ${LIBFT_DIR}
 	@make -s -C ${MLX_DIR}
-	$(CC) $(OBJ) $(CFLAGS) Libft/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJS) $(CFLAGS) Libft/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 	@echo "\033[32;1m\n                     Project has compiled successfully! ✅ \033[0m"
 	@echo "\033[32;1m\n 💾 Executable './$(NAME)' has been created in: \n    └─ 📂 \033[4;36m ~ $(PWD)\033[0m"
 
@@ -46,7 +52,7 @@ $(NAME): $(OBJ)
 	$(CC) -Wall -Wextra -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 clean:
-	$(RM) $(OBJ)
+	$(RM) -r $(OBJ_DIR)
 
 fclean:		
 	@echo "\033[1;33m\n                        [Cleaning directories with \033[0;36mfclean\033[1;33m]\n\033[0m"
