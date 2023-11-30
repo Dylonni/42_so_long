@@ -20,7 +20,7 @@ SRC_MAIN		= src/main.c \
 				  src/free.c
 
 SRCS			= ${SRC_MAIN}
-OBJ_DIR			= objs
+OBJ_DIR			= .objs
 OBJS 			= $(patsubst src/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 
 LIBFT_DIR 		= Libft/
